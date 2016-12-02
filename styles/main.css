@@ -4,61 +4,67 @@
 body { 
     background: url("../images/crabNed.jpg") no-repeat center fixed; 
     background-size: cover;
+    font-family: arial;
 }
-header {
-  padding-bottom: 40px;
-}
-#gameIntro {
-  margin: 5px auto 5px auto;
-}
-h2 {
-  margin-left: 150px;
-  font: bold 30px arial;
-  color: white;
-}
-nav {
-  padding: 20px;
-}
-ul {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: white;
-  font: bold 22px arial;
-}
-ul li {
-  display: inline;
-}
-nav ul li:last-child {
-  float: right;
-/*  Remember to ask mentor why this is formatting like this, and why I used below  */
-  padding-right: 40px;
-}
-section {
-  background-color: #0C296D;
-  height: 350px;
-  width: 60%;
-  margin: 20px auto 15px auto;
-  padding: 35px 20px 20px 10px;
-  border-radius: 8px;
-}
-#questionContainer {
-  margin: 0px auto 0px auto;
-  background-color: white;
-  height: 90%;
-  width: 90%;
-  border: 4px solid grey;
-  border-radius: 8px;
-}
-#output {
-  height: 100px;
-  width: 60%;
-  margin: 0px auto 0px auto;
-  border-radius: 8px;
-  background-color: red;
-  color: white;
-  font: bold 20px arial;
-  padding: 10px;
 
+h1 {
+    text-align: center;
+    font: bold 35px arial;
+    color: white;
+}
+
+#quiz {
+    text-indent: 10px;
+    display:none;
+}
+
+.button {
+    border: 2px solid white;
+    border-radius:8px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    position: relative;
+    float: right;
+    background-color: green;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+.button:hover{
+    background-color: red;
+    border: 2px solid black;
+    color: black;
+}
+#container {
+    width:50%;
+    margin: 100px auto;
+    padding: 0 25px 40px 10px;
+    background-color: grey;
+    border:4px solid white;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+}
+li {
+    margin: 5px 0px 5px 0px;
+}
+
+#prev {
+    display:none;
+}
+
+#start {
+    display:none;
 }
