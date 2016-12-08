@@ -13,12 +13,16 @@ h1 {
     color: white;
 }
 
+#title {
+  margin: 10px 0px 15px 0px;
+}
+
 #quiz {
     text-indent: 10px;
     display:none;
 }
 
-.button {
+button {
     border: 2px solid white;
     border-radius:8px;
     width: 100px;
@@ -28,13 +32,14 @@ h1 {
     position: relative;
     float: right;
     background-color: green;
+    font: bold 15px arial;
 }
 
-.button a {
+button a {
     text-decoration: none;
     color: white;
 }
-.button:hover{
+button:hover{
     background-color: red;
     border: 2px solid black;
     color: black;
@@ -61,9 +66,9 @@ li {
     margin: 5px 0px 5px 0px;
 }
 
-#prev {
+/*#prev {
     display:none;
-}
+}*/
 
 #start {
     display:none;
