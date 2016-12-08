@@ -1,10 +1,47 @@
 * {
   box-sizing: border-box;
 }
+
 body { 
     background: url("../images/crabNed.jpg") no-repeat center fixed; 
     background-size: cover;
     font-family: arial;
+    font-size: 18px;
+}
+
+#start ul li { 
+  display: inline;
+}
+
+nav {
+  position: relative;
+  height: 10%;
+  padding: 1em;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2em;
+  font-family: arial;
+  margin: 15px 15px 0px 0px;
+}
+
+nav ul li:first-child {
+  float: right;
+}
+
+nav a {
+  color: white;
+  border-radius: 8px;
+  border: 1.5px solid white;
+  padding: 8px;
+  text-decoration: none;
+}
+
+#start:hover{
+    border: 4px solid #67BF53;
+    color: #67BF53;
 }
 
 h1 {
@@ -31,24 +68,21 @@ button {
     padding: 5px 5px 5px 5px;
     position: relative;
     float: right;
-    background-color: green;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
     font: bold 15px arial;
 }
 
-button a {
-    text-decoration: none;
-    color: white;
-}
 button:hover{
     background-color: red;
-    border: 2px solid black;
-    color: black;
 }
+
 #container {
-    width:50%;
+    width:60%;
     margin: 100px auto;
     padding: 0 25px 40px 10px;
-    background-color: grey;
+    background-color: #67BF53;
     border:4px solid white;
     border-radius: 5px;
     color: white;
@@ -66,10 +100,8 @@ li {
     margin: 5px 0px 5px 0px;
 }
 
-/*#prev {
-    display:none;
-}*/
-
-#start {
-    display:none;
+#scoreOutput{
+  margin: 20px 0px 0px 10px;
+  font-size: 25px;
 }
+

@@ -61,9 +61,10 @@
       		 $('#output').html('Correct!');
 
       		 numCorrect++;
-
-      	}
+		}
+      	
       	else{
+      		
       		$('#output').html('Incorrect!');
       	}
       	questionCounter++;
@@ -75,6 +76,7 @@
   // Click handler for the 'Start Over' button
   $('#start').on('click', function (e) {
     
+    event.preventDefault();
     // calls function to restart game
 	newGame();
 
@@ -136,18 +138,11 @@
       	var nextQuestion = createQuestionElement(questionCounter);
         // fades in the next question
         quiz.prepend(nextQuestion).fadeIn();
-
-         // Controls display of 'prev' button
-        if(questionCounter === 1){
-        	
-        	$('#prev').show(); 
-        } 
-        else if(questionCounter === 0){
-          
-        	$('#prev').hide();
+		// Controls display of next button and displays final score
+        if(questionCounter === 0){
         	
         	$('#next').show();
-        }
+        } 
       }
         else {
         	
@@ -156,8 +151,6 @@
         	quiz.append(scoreElem).fadeIn();
         	
         	$('#next').hide();
-        	
-        	$('#start').show();
       }
     });
   }
@@ -176,12 +169,11 @@
  function newGame(){
 
 	 questionCounter = 0;
-	 
-	 selections = [];
+
+	 numCorrect = 0;
 	 
 	 displayNext();
 	 
-	 $('#start').hide();
   }
  // **********************************************
  // End Of Program : )
