@@ -4,22 +4,27 @@
     question: "Earth's Moon is how many miles away?",
     choices: ['1 million miles', '500 miles', '2,380 miles', '238,900 miles'],
     correctAnswer: 3,
+    correctAnswerText: "The correct answer is 238,000 miles",
   }, {
     question: "How long does it take for the light from the Sun to reach Earth?",
     choices: ['2 hours', '8.2 seconds', '8 minutes and 20 seconds', '1 week'],
     correctAnswer: 2,
+    correctAnswerText: "The correct answer is 8 minutes and 20 seconds",
   }, {
     question: "How many Earth's could fit into Jupiter?",
     choices: ['100 Earths', '1,300 Earths', '380 Earths', '50 Earths'],
     correctAnswer: 1,
+    correctAnswerText: "The correct answer is 1,300 Earth's",
   }, {
     question: "How many times would you have to multiply the weight of Earth, to equal the weight of the Sun?",
     choices: ['1,000 Times', '333 Times', '3,300 Times', '333,000 Times'],
     correctAnswer: 3,
+    correctAnswerText: "The correct answer is 333,000 times the weight of Earth"
   }, {
     question: "At the speed of light, (670,616,629 mph), how long would it take to get to our neighbor galaxy Cannis Major? ",
     choices: ['25,000 years', '10 years', '25 years', '1,000 years'],
     correctAnswer: 0,
+    correctAnswerText: "The correct is 25,000 years!",
   }];
 // Below are global scope variables
   //current question
@@ -65,7 +70,7 @@
       	
       	else{
       		
-      		$('#output').html('Incorrect!');
+      		$('#output').html('Incorrect! ' + questions[questionCounter].correctAnswerText);
       	}
       	questionCounter++;
       	// Calls up next question
@@ -171,6 +176,8 @@
 	 questionCounter = 0;
 
 	 numCorrect = 0;
+
+	 $('#output').html('Good Luck!');
 	 
 	 displayNext();
 	 
