@@ -1,4 +1,10 @@
 
+ // The space game, click the start button to play, then select the correct answer from the 
+ // the radio selection. Game will output whether you got the right answer or not, track your score,
+ // and output the correct answer if you got one wrong.
+ // Built with JS and jQuery, enjoy
+ // by Russell Sabia
+
  // array of objects holding questions, choices, and the correct answer
   var questions = [{
     question: "Earth's Moon is how many miles away?",
@@ -35,7 +41,7 @@
   var numCorrect = 0;
 
   var totalQuestions = 5;
-
+  // Listen for start game button to be clicked
   $('#gameStartButton').click(function(){
 	
 	$('#startGame').fadeOut(100);
@@ -45,8 +51,6 @@
 	// function call to display first question
   	displayNext();
 });
-  // function call to display first question
-  // displayNext();
   
   //handler for the 'next' button
   $('#quiz').submit(function(event){
@@ -75,7 +79,7 @@
       		 numCorrect++;
 
       		 $('#output').html('Correct!' + "</br>" + numCorrect + " out of " + totalQuestions 
-      		 	+ " questions correct");
+      		 + " questions correct");
 
       		 $('#submit').hide();
       		 
@@ -85,12 +89,13 @@
       	else{
       		
       		$('#output').html(questions[questionCounter].correctAnswerText + "</br>" 
-      			+ numCorrect + " out of " + totalQuestions + " questions correct");
+      		+ numCorrect + " out of " + totalQuestions + " questions correct");
 
       		$('#submit').hide();
       		
       		$('#next').show();
       	}
+      	// increase question count by 1
       	questionCounter++;
       	
       	$('#next').click(function(){
@@ -106,9 +111,9 @@
   // Click handler for the 'Start Over' button
   $('#start').on('click', function (e) {
     
-    event.preventDefault();
-    // calls function to restart game
-	newGame();
+	    event.preventDefault();
+	    // calls function to restart game
+		newGame();
 
   });
   
@@ -116,7 +121,7 @@
 // Creates DOM element with question, and what question number you are on
   function createQuestionElement(index) {
     var questionDiv = $('<div>', {
-    	id: 'question'
+    id: 'question'
     });
     
     var header = $('<h2> Space Question ' + (index + 1) + ':</h2>');
@@ -168,10 +173,13 @@
       	var nextQuestion = createQuestionElement(questionCounter);
         // fades in the next question
         quiz.prepend(nextQuestion).fadeIn();
-
+        // Hides next button, shows the Submit button
         $('#next').hide();
       		
       	$('#submit').show();
+      	// Clears answer output
+      	$('#output').html(numCorrect + " out of " + totalQuestions 
+      	+ " questions correct");
 		// Controls display of next button and displays final score
         if(questionCounter === 0){
         	
@@ -185,6 +193,8 @@
         	quiz.append(scoreElem).fadeIn();
         	
         	$('#submit').hide();
+
+        	$('#next').hide();
       }
     });
   }
@@ -193,9 +203,18 @@
   function displayScore() {
   	
   	var score = $('<p>',{id: 'question'});
+
+  	if (numCorrect > 3){
     
-    score.append('You got ' + numCorrect + ' questions out of ' +
-                 totalQuestions + ' right!!!');
+    	score.append('You got ' + numCorrect + ' questions out of ' +
+        totalQuestions + ' right! Someone is ready to go to Space!');
+	}
+
+	else{
+
+		score.append('You got ' + numCorrect + ' questions out of ' +
+        totalQuestions + ' right. Maybe stay on the ground or try again.');
+	}	
     return score;
   }
   // ************************************************************
