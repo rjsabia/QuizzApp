@@ -36,8 +36,17 @@
 
   var totalQuestions = 5;
 
+  $('#gameStartButton').click(function(){
+	
+	$('#startGame').fadeOut(100);
+	
+	$('#spaceGame').fadeIn(1000);
+
+	// function call to display first question
+  	displayNext();
+});
   // function call to display first question
-  displayNext();
+  // displayNext();
   
   //handler for the 'next' button
   $('#quiz').submit(function(event){
@@ -63,18 +72,34 @@
       	
       	if (userAnswer == questions[questionCounter].correctAnswer){
       		 
-      		 $('#output').html('Correct!');
-
       		 numCorrect++;
+
+      		 $('#output').html('Correct!' + "</br>" + numCorrect + " out of " + totalQuestions 
+      		 	+ " questions correct");
+
+      		 $('#submit').hide();
+      		 
+      		 $('#next').show();
 		}
       	
       	else{
       		
-      		$('#output').html('Incorrect! ' + questions[questionCounter].correctAnswerText);
+      		$('#output').html(questions[questionCounter].correctAnswerText + "</br>" 
+      			+ numCorrect + " out of " + totalQuestions + " questions correct");
+
+      		$('#submit').hide();
+      		
+      		$('#next').show();
       	}
       	questionCounter++;
+      	
+      	$('#next').click(function(){
+
+      		displayNext();
+
+      	})
       	// Calls up next question
-      	displayNext();
+      	
     }
   });
   
@@ -143,10 +168,14 @@
       	var nextQuestion = createQuestionElement(questionCounter);
         // fades in the next question
         quiz.prepend(nextQuestion).fadeIn();
+
+        $('#next').hide();
+      		
+      	$('#submit').show();
 		// Controls display of next button and displays final score
         if(questionCounter === 0){
         	
-        	$('#next').show();
+        	$('#submit').show();
         } 
       }
         else {
@@ -155,7 +184,7 @@
         	
         	quiz.append(scoreElem).fadeIn();
         	
-        	$('#next').hide();
+        	$('#submit').hide();
       }
     });
   }
@@ -178,6 +207,10 @@
 	 numCorrect = 0;
 
 	 $('#output').html('Good Luck!');
+
+	 $('#spaceGame').fadeOut(100);
+	
+	 $('#startGame').fadeIn(1000);
 	 
 	 displayNext();
 	 
